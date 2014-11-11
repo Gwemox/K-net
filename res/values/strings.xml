@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">K-net</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_infos">InfosActivity</string>
+    <string name="title_activity_wol">WolActivity</string>
+    <string name="drawer_open">Ouvrir menu</string>
+    <string name="drawer_close">Fermer menu</string>
+    <string name="search">Recherche</string>
+    <string name="title_activity_tools">ToolsActivity</string>
+    <string name="title_activity_tv">TvActivity</string>
+    <string name="title_activity_knet_main">MainActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+	<string name="title_auto_connect">Connexion Automatique</string>
+	<string name="title_choose_load">Choisir la page de démarrage :</string>
+	
+</resources>
