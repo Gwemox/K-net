@@ -20,6 +20,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -58,10 +59,10 @@ public class LoginActivity extends Activity {
 
 	private int FragmentPosMainActivity = 0;
 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		//On change le logo dans la barre du haut et on ajoute la version
 		setContentView(R.layout.activity_login);
 		getActionBar().setLogo(R.drawable.logo_knet_white);
@@ -336,12 +337,24 @@ public class LoginActivity extends Activity {
 			        for (String line = br.readLine(); line != null; line = br.readLine())
 			            out.append(line);
 			        br.close();
-
-			        JSONArray json = new JSONArray(out.toString());
-				 	
-				 	intent.putExtra("mac",json.getString(0));
+			        
+			        System.out.println("PHPSESSID : " + PHPSESSID);
+			        System.out.println("Le serveur à répondu : " + out.toString());
+			        
+			        if(out.toString().equalsIgnoreCase("UNAUTHORIZED"))
+			        {
+			        	Toast.makeText(getBaseContext(), "Le serveur n'a pas accepté la demande d'authentification. Celà peut-être un problème temporaire sur le réseau. Merci de réssayer plus tard.", Toast.LENGTH_LONG).show();
+			        	return;
+			        }
+			        else
+			        {
+			        	JSONArray json = new JSONArray(out.toString());
+				 		intent.putExtra("mac",json.getString(0));
+				 		
+			        }
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				} 
 		       

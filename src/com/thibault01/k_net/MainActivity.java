@@ -332,7 +332,7 @@ ListView.OnItemClickListener {
 				        for (String line = br.readLine(); line != null; line = br.readLine())
 				            out.append(line);
 				        br.close();
-
+				        System.out.println(out.toString());
 						SetData(out, _action); //Ici on fait l'action
 						
 				    } catch (Exception e) {
